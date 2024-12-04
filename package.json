@@ -2,8 +2,8 @@
   "name": "rick-and-morty",
   "version": "1.0.0",
   "type": "module",
-  "engines" : {
-    "node" : ">=18.18.0"
+  "engines": {
+    "node": ">=18.18.0"
   },
   "scripts": {
     "dev": "vite dev",
