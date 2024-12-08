@@ -1,0 +1,18 @@
+query AllEpisodes($page: Int, $season: String) {
+  episodes(page: $page, filter: { episode: $season }) {
+    info {
+      count
+      pages
+      next
+    }
+    results {
+      id
+      name
+      episode
+      characters {
+        id
+        name
+      }
+    }
+  }
+}
