@@ -1,31 +1,29 @@
 query AllCharacters($page: Int, $filter: FilterCharacter) {
-    characters(page: $page, filter: $filter) {
-        info {
-            pages
-            count
-        }
-        results {
-            id
-            name
-            species
-            type
-            image
-            status
-            location {
-                id
-                name
-            }
-        }
+  characters(page: $page, filter: $filter) {
+    info {
+      pages
+      count
     }
+    results {
+      id
+      name
+      species
+      type
+      image
+      status
+      location {
+        id
+        name
+      }
+    }
+  }
 }
 
 query CharacterById($id: ID!) {
-    character(id: $id) {
-        id
-        name
-        status
-        species
-    }
+  character(id: $id) {
+    id
+    name
+    status
+    species
+  }
 }
-
-

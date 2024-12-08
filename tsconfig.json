@@ -15,7 +15,7 @@
       "@assets/*": ["src/assets/*"],
       "@shared/*": ["src/shared/*"],
       "@widgets/*": ["src/widgets/*"],
-      "@entities/*": ["src/entities/*"],
+      "@entities/*": ["src/entities/*"]
     }
   }
   // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias

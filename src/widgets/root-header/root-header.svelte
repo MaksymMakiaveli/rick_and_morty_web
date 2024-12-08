@@ -13,6 +13,7 @@
   let search = $state('');
   let isDirty = $state(false);
   let searchInput = $state<HTMLInputElement | null>(null);
+  let isOpen = $state(false);
 
   const isInvalidSearch = $derived(isDirty && search.length < 3);
 
@@ -65,8 +66,6 @@
     ] as NormalizedSearchResult[];
   });
 
-  let isOpen = $state(false);
-
   function onInput() {
     isDirty = true;
   }
@@ -79,9 +78,11 @@
     isOpen = true;
   }
 
-  $effect(() => {
-    console.log($searchResult);
-  });
+  function onItemClick() {
+    isOpen = false;
+    search = '';
+    isDirty = false;
+  }
 </script>
 
 <header>
@@ -131,13 +132,17 @@
                 {#each normalizedSearchResult as result, idx (idx)}
                   <li class="border-b border-b-gray-600 px-4 py-3 last:border-b-0">
                     {#if result.type === 'character'}
-                      <a class="flex items-center gap-2 overflow-hidden rounded-md" href="/characters/{result.id}">
-                        <img src={result.image} alt={result.name} class="size-12" />
-                        <span>{result.name} </span>
+                      <a
+                        onclick={onItemClick}
+                        href="/characters/{result.id}"
+                        class="flex items-center gap-2 overflow-hidden truncate rounded-md"
+                      >
+                        <img src={result.image} alt={result.name} class="size-12 rounded-md" />
+                        <span>{result.name}</span>
                       </a>
                     {/if}
                     {#if result.type === 'episode'}
-                      <a href="/seasons/{result?.episode?.match(/S\d+/)?.[0]}/{result.id}">
+                      <a onclick={onItemClick} href="/seasons/{result?.episode?.match(/S\d+/)?.[0]}/{result.id}">
                         <span>{result.name} | {result.episode}</span>
                       </a>
                     {/if}

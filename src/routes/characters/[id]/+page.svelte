@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { EpisodeCard } from '@entities/episode/ui/episode-card/index.js';
+  import { EpisodeCard } from '@entities/episode/ui/episode-card';
   import { type Character, getQueryStore } from '@shared/api/gql';
   import { Button } from '@shared/ui-kit/button';
   import { Spinner } from '@shared/ui-kit/spinner';
@@ -88,23 +88,19 @@
           <ul class="flex flex-wrap gap-4 pt-4">
             {#each episodes as episode (episode?.id)}
               <li class="items flex">
-                {#snippet action({ id }: { id: string })}
-                  <Button
-                    variant="link"
-                    size="sm"
-                    href="/seasons/{episode?.episode?.match(/S\d+/)?.[0]}/{id}"
-                    data-sveltekit-preload-data="hover"
-                  >
-                    <InfoIcon class="size-6" />
-                    <span>Read more</span>
-                  </Button>
-                {/snippet}
-                <EpisodeCard
-                  name={episode?.name || ''}
-                  {action}
-                  episode={episode?.episode || ''}
-                  id={episode?.id || ''}
-                />
+                <EpisodeCard name={episode?.name || ''} episode={episode?.episode || ''} id={episode?.id || ''}>
+                  {#snippet action({ id })}
+                    <Button
+                      variant="link"
+                      size="sm"
+                      href="/seasons/{episode?.episode?.match(/S\d+/)?.[0]}/{id}"
+                      data-sveltekit-preload-data="hover"
+                    >
+                      <InfoIcon class="size-6" />
+                      <span>Read more</span>
+                    </Button>
+                  {/snippet}
+                </EpisodeCard>
               </li>
             {/each}
           </ul>

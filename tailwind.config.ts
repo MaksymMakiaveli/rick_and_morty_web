@@ -9,7 +9,13 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1.5rem',
+        lg: '2rem',
+        xl: '2rem',
+        '2xl': '2rem',
+      },
       screens: {
         xl: '1328px',
         '2xl': '1328px',
@@ -53,6 +59,7 @@ const config: Config = {
         ui: {
           black: 'hsl(var(--ui-black) / <alpha-value>)',
           primary: 'hsl(var(--ui-primary) / <alpha-value>)',
+          secondary: 'hsl(var(--ui-secondary) / <alpha-value>)',
         },
       },
       borderRadius: {

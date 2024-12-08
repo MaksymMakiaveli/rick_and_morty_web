@@ -72,7 +72,7 @@
       <hr class="border-t-2 border-t-ui-primary" />
       <div class="container pt-12">
         <div>
-          <h3 class="text-3xl font-bold">Episodes</h3>
+          <h3 class="text-3xl font-bold">Characters</h3>
           <ul class="flex flex-wrap gap-4 pt-4">
             {#each episode?.characters || [] as character (character?.id)}
               <li class="items flex">
