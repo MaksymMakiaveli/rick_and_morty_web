@@ -10,6 +10,12 @@ const config = {
         environment: 'production',
       },
     }),
+    alias: {
+      '@shared': './src/shared',
+      '@assets': './src/assets',
+      '@widgets': './src/widgets',
+      '@entities': './src/entities',
+    },
   },
 };
 
