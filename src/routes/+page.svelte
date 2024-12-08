@@ -10,7 +10,7 @@
   } from '@shared/api/gql';
   import { Button } from '@shared/ui-kit/button';
   import InfoIcon from '@assets/icons/info.svg?component';
-  import ArrowIcon from '@assets/icons/Arrow.svg?component';
+  import ArrowIcon from '@assets/icons/arrow.svg?component';
   import { Spinner } from '@shared/ui-kit/spinner';
   import { gql } from '@urql/svelte';
 
